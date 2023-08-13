@@ -1,0 +1,28 @@
+version: '1'
+
+services:
+  usuario-jvm:
+    image: quarkus/usuairo-jvm:latest
+    build:
+      context: ./
+      dockerfile: src/main/docker/Dockerfile.${QUARKUS_MODE:-jvm}
+    environment:
+      QUARKUS_DATASOURCE_URL: jdbc:postgresql://postgresql-usuario:5432/usuarios
+    networks:
+      - minha-rede
+    ports:
+      - 8080:8080
+    depends_on:
+      - postgresql-usuario
+
+  postgresql-usuario:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: usuarios
+    networks:
+      - minha-rede
+
+networks:
+  minha-rede:
+    driver: bridge
