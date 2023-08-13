@@ -18,5 +18,12 @@ http://localhost:8080/usuario/buscar/listar || http://localhost:8080/usuario/bus
 
 -exemplo de json para cadastro: {"first_name":"Josephine","email":"j.russell22@yahooo.com","username":"josephinerussell29","password":"#CAAjosephinerussellhtQ"}
 
-# X-RapidAPI-Key
+## X-RapidAPI-Key
 como o gerador de usuario é uma api externa que peguei no rapidAPI, crie uma conta la se nao tiver. E coloque sua X-RapidAPI-Key no application.properties
+
+### Comandos apos inserir a X-RapidAPI-Key
+-mvn clean install -DskipTests (opcional para criar o .jar)
+
+-docker-compose build
+
+-docker-compose up
